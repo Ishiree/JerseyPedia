@@ -1,0 +1,44 @@
+body{
+    background-color: white;
+}
+
+/* Banner */
+.banner img{
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Pilih Liga */
+.pilih-liga img{
+    max-height: 100px;
+}
+
+.pilih-liga .card{
+    border-radius: 15px;
+}
+
+/* Best Products */
+.products .card{
+    border-radius: 15px;
+}
+
+/* List Products */
+.breadcrumb{
+    background-color: transparent;
+    padding-left: 0;
+}
+
+.breadcrumb .active{
+    font-weight: bold;
+    color: black;
+}
+
+.btn-dark{
+    border-radius: 10px;
+}
+
+.gambar-product{
+    background-color: #f1f1f1;
+    border-width: 0;
+    border-radius: 20px;
+}

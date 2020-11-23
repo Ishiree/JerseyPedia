@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::livewire('/', 'home')->name('home');
+Route::livewire('/products', 'product-index')->name('products');
+Route::livewire('/products/liga/{liga_Id}', 'product-liga')->name('products.liga');
+Route::livewire('/products/{id}', 'product-detail')->name('products.detail');
