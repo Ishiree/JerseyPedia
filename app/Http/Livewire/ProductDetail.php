@@ -46,7 +46,7 @@ class ProductDetail extends Component
                 'user_id' => Auth::user()->id,
                 'total_harga' => $total_harga,
                 'status' => 0,
-                'kode_unik' => mt_rand(100, 99)
+                'kode_unik' => mt_rand(100, 999)
             ]);
 
             $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
@@ -67,6 +67,12 @@ class ProductDetail extends Component
             'nomor'=>$this->nomor,
             'total_harga'=>$total_harga
         ]);
+        
+        $this->emit('masukKeranjang');
+
+        session()->flash('massage', 'Sukses Masuk Keranjang');
+        
+        return redirect()->back();
     }
 
     public function render()

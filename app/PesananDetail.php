@@ -12,4 +12,14 @@ class PesananDetail extends Model
     public function product(){
         return $this -> belongsTo(Product::class, 'product_id','id');
     }
+
+    protected $fillable = [
+        "jumlah_pesanan",
+        "total_harga",
+        "nameset",
+        "nama",
+        "nomor",
+        "product_id",
+        "pesanan_id"
+    ];
 }

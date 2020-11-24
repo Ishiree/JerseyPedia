@@ -13,7 +13,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">home</a>
+                        <a class="nav-link" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,14 +25,26 @@
                           <a class="dropdown-item" href="{{ route('products.liga',$liga->id) }}">{{ $liga->nama }}</a>
                           @endforeach
                           <a class="dropdown-item" href="{{ route('products') }}">Semua Liga</a>
-                        </div>
+                        </div>    
+                    </li>
+                    <li class="nav-item">
                         
-                      </li>
+                        <a wire:click="history" class="nav-link" href="{{ route('history') }}">History</a>
+                      
+                    </li>
                 </ul>
                 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('keranjang') }}">
+                            Keranjang <i class="fas fa-shopping-bag"></i>
+                            @if($jumlah_pesanan !== 0)
+                            <span class="badge badge-danger">{{ $jumlah_pesanan }}</span>
+                            @endif
+                        </a>
+                    </li>
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

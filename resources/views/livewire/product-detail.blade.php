@@ -10,6 +10,16 @@
             </nav>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            @if(session()->has('massage'))
+            <div class="alert alert-success">
+                {{ session('massage') }}
+            </div>
+            @endif
+        </div>
+    </div>
     
     <div class="row">
         <div class="col-md-6">

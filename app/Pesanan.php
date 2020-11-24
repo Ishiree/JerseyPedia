@@ -13,4 +13,12 @@ class Pesanan extends Model
     public function user(){
         return $this -> belongsTo(User::class, 'user_id','id');
     }
+
+    protected $fillable = [
+        "kode_pemesanan",
+        "status",
+        "total_harga",
+        "kode_unik",
+        "user_id"
+    ];
 }
