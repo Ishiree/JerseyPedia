@@ -47,7 +47,9 @@
                     </li>
                     @guest
                         <li class="nav-item">
+                            {{-- <form wire:submit.prevent="cekLogin"> --}}
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            {{-- </form> --}}
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
@@ -67,9 +69,14 @@
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="HEAD" class="d-none">
                                     @csrf
                                 </form>
+
+                                <a wire:click="admPage" class="dropdown-item" href="{{ route('adm-page') }}">Admin Page</a>
+
+                                   
+                                
                             </div>
                         </li>
                     @endguest

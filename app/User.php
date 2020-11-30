@@ -16,28 +16,19 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','nohp', 'alamat'
+        'name', 'email', 'password','nohp', 'alamat', 'role'
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+   
 
     public function pesanans(){
         return $this -> hasMany(Pesanan::class, 'user_id','id');
+    }
+
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
+    
+    public function hasPermission($permission) {
+        return $this->role->permissions()->where('name', $permission)->first() ?: false;
     }
 }

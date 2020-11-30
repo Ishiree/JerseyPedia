@@ -51,4 +51,18 @@ class Navbar extends Component
             return redirect()->route('login');
         }
     }
+    public function admPage(){
+        if(!Auth::user()){
+            return redirect()->route('login');
+        }
+    }
+    
+
+
+    // public function cekLogin(){
+    //     if(Auth::user()->name->admin)
+    //     {
+    //         return view()->route('navbar-admin');
+    //     }
+    // }
 }
